@@ -1,0 +1,235 @@
+#div_rodzice {
+	padding: 1vh;
+	height: 25%;
+}
+
+#div_person {
+	padding: 1vh;
+	clear: left;
+	height: 50%;
+}
+
+#div_dzieci {
+	padding: 1vh;
+	clear: left;
+	height: 25%;
+}
+
+#div_person_info {
+	width: 40%;
+	font-size: 2.5vh;
+}
+
+#div_person_rodzenstwo {
+	margin-left: 2%;
+	width: 58%;
+	height: 38vh;
+}
+
+#div_dzieci_lista {
+	width: 100%;
+	height: 17vh;
+}
+
+#div_person_opis {
+	height: 80%;
+}
+
+#div_person_tools {
+	height: 15%;
+	margin-left: 25%;
+	padding: 0.25vh;
+}
+
+#div_person_tools img {
+	height: 90%;
+}
+
+#div_dialog {
+	display: none;
+}
+
+.div_rodzic_kolumna {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+.div_rodzic {
+	width: 50vh;
+	display: inline-block;
+}
+
+.div_rodzic_photo {
+	float: left;
+	margin: 0.5vh;
+}
+
+.div_rodzic_photo img {
+	height: 15vh;
+	margin: 1vh; 
+}
+
+.div_rodzic_opis {
+	padding-top: 0.5vh;
+	text-align: left;
+}
+
+.div_rodzic_opis .span_label {
+	color: #cccccc;
+}
+
+.div_person_photo {
+	float: left;
+	margin: 0.75vh;
+	height: 38vh;
+}
+
+.div_person_photo img {
+	height: 36vh;
+	margin: 1vh; 
+}
+
+.div_person_opis {
+	padding-top: 0.75vh;
+	height: 38vh;
+}
+
+.div_person_opis .span_label {
+	color: #cccccc;
+}
+
+#div_dialog {
+  display: none;
+  font-size: 100%;
+}
+
+#div_dialog table {
+  font-size: 100%;
+  color: #808080;
+}
+
+#div_dialog li {
+  list-style-type:none;
+}
+
+#tab_edit_rodzice {
+  width: 100%;
+}
+
+#tab_edit_rodzice td {
+  width: 50%;
+}
+
+#tab_edit_rodzice td select {
+  width: 100%;
+}
+
+#tab_edit_plec {
+  width: 100%;
+  margin: 15 0 15 0;
+}
+
+#tab_edit_plec td {
+  width: 50%;
+}
+
+#tab_edit_ur {
+  width: 100%;
+  margin: 15 0 15 0;
+  border: 1px solid #dddddd;
+}
+
+#tab_edit_ur .td_rok_nag {
+  font-style: italic;
+}
+
+#tab_edit_ur .td_mie_nag {
+  font-style: italic;
+}
+
+#tab_edit_ur .td_dzi_nag {
+  font-style: italic;
+}
+
+#tab_edit_ur .td_miejsce_nag {
+  font-style: italic;
+}
+
+#tab_edit_zg {
+  width: 100%;
+  margin: 15 0 15 0;
+  border: 1px solid #000000;
+}
+
+#tab_edit_zg .td_rok_nag {
+  font-style: italic;
+}
+
+#tab_edit_zg .td_mie_nag {
+  font-style: italic;
+}
+
+#tab_edit_zg .td_dzi_nag {
+  font-style: italic;
+}
+
+#tab_edit_zg .td_miejsce_nag {
+  font-style: italic;
+}
+
+#tab_edit_zmarl {
+  margin: 15 0 15 0;
+}
+
+#but_edit, #but_link {
+  font-size: 90%;
+}
+
+#tab_edit_nazwisko {
+	width: 100%;
+}
+
+#tab_edit_nazwisko td {
+	width: 33%;
+}
+
+#tab_edit_nazwisko td input {
+	width: 100%;
+}
+
+.txt_rok {
+	width: 100%;
+}
+
+.sel_mie {
+	width: 100%;
+}
+
+.sel_dzi {
+	width: 100%;
+}
+
+.txt_godz {
+	width: 45%;
+}
+
+.txt_miejsce {
+	width: 100%;
+}
+
+.td_rok {
+  width: 5vh;
+}
+
+.td_mie {
+  width: 12vh;
+}
+
+.td_dzi {
+  width: 5vh;
+}
+
+.td_godz {
+  width: 12vh;
+}

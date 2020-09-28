@@ -1,0 +1,1 @@
+SELECT lud_id FROM lud_ludzie WHERE lud_activ>0 AND (((lud_lud_matka=:lud_id) AND (lud_lud_matka<>0)) OR ((lud_lud_ojciec=:lud_id) AND (lud_lud_ojciec<>0)))

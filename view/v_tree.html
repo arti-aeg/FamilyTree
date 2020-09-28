@@ -1,0 +1,30 @@
+<div id="div_tree_menu" class="div_sticker" >
+	<img src="img/lupa_out.png" onClick="Zoom('-')">
+	<img src="img/lupa_in.png" onClick="Zoom('+')">
+	<img src="img/lupa_h.png" onClick="Zoom('H')">
+	<img src="img/lupa_w.png" onClick="Zoom('W')">
+	<img src="img/lupa_oryginal.png" onClick="Zoom('')">
+	<span><a href="<?php echo $back_link ?>">POWRÓT</a></span>
+</div>
+<div id="div_tree_canvas" class="div_sticker">
+	<canvas id="canvas_tree" width="<?php echo $width ?>" height="<?php echo $height ?>"></canvas>
+</div>
+<script>
+	var J_ROOTS = JSON.parse('<?php echo $json_roots ?>');
+	var J_LEAVES = JSON.parse('<?php echo $json_leaves ?>');
+	var J_ZOOM = JSON.parse('["10%","25%","50%","80%","100%","150%","200%"]');
+	var zoom = 2;
+	var canvas = document.getElementById('canvas_tree');
+	var context = canvas.getContext('2d');
+	var W_MARGIN = <?php echo $marginW ?>;
+	var H_MARGIN = <?php echo $marginH ?>;
+	var	bgY = <?php echo $bgY ?>;
+	var bgH = <?php echo $bgH ?>;
+	var rootsX = <?php echo $rootsX ?>;
+	var rootsY = <?php echo $rootsY ?>;
+	var leavesX = <?php echo $leavesX ?>;
+	var leavesY = <?php echo $leavesY ?>;
+	var ZoomDim = 'width';
+	var ZoomValue = '100%';
+	PrintBackground(context,'img/tree_background.jpg',<?php echo $width ?>,<?php echo $height ?>);
+</script>

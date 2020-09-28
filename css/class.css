@@ -1,0 +1,104 @@
+.div_listaosoba {
+	text-align: center;
+	margin: auto;
+	width: 10vh;
+}
+
+.div_lista_element {
+	float: left;
+	margin: 1vh;
+}
+
+.div_listaosoba_photo {
+	display: inline-block;
+}
+
+.div_listaosoba_photo img {
+	margin: 0.5vh; 
+	height: 9vh;
+}
+
+.div_listaosoba_opis {
+	padding-top: 5px;
+}
+
+.div_listaosoba_opis .span_nazwisko {
+	font-size: 120%;
+}
+
+.div_listaosoba_opis .span_label {
+	color: #cccccc;
+}
+
+.span_plec_0 {
+	color: #49dbf3;
+}
+
+.span_plec_1 {
+	color: #f34f4f;;
+}
+
+.div_rodzic_opis span {
+	margin-left: 10px;
+}
+
+.photo_frame_1 {
+	background-image: linear-gradient(135deg, #ff0101, #d5cfcc3b);
+}	
+
+.photo_frame_0 {
+	background-image: linear-gradient(135deg, #0164ff, #d5cfcc3b);
+}	
+
+.photo_frame_1_zm {
+	background-image: linear-gradient(135deg, #080808, #ff010178);
+}	
+
+.photo_frame_0_zm {
+	background-image: linear-gradient(135deg, #080808, #0164ff7d);
+}	
+
+.span_nazwisko {
+	display: block;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.span_label {
+	display: block;
+	font-size: 100%;
+	font-style: italic;
+}
+
+.div_inner {
+	float: left;
+}
+
+.div_sticker {
+	background-color: #1c381f80;
+	box-shadow: 5px 5px 15px #f7f4f480;
+}	
+
+.img_person_add {
+	height: 4vh;
+}
+
+.div_box {
+	height: 100%;
+	float: right;
+	position: relative;
+	width: 10vh;
+}
+
+.div_tools {
+	position: absolute;
+	bottom: 0;
+}
+
+.div_rodzic_box {
+	float: right;
+	width: 5vh;
+}
+
+.div_rodzic_tools {
+}

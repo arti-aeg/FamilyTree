@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<title><?php echo $service_title ?> - <?php echo $page_title ?></title>
+		<link rel="stylesheet" href="<?php echo $AppPath ?>css/page.css">
+		<link rel="stylesheet" href="<?php echo $AppPath ?>css/class.css">
+		<link rel="stylesheet" href="<?php echo $AppPath ?>js/jquery-ui-1.12.1/jquery-ui.css">
+<?php if (isset($content_css)): ?>
+<?php if (is_array($content_css)): ?>
+<?php foreach($content_css as $cx => $cv): ?>
+		<link rel="stylesheet" href="<?php echo $AppPath ?>css/<?php echo $cv ?>.css">
+<?php endforeach ?>
+<?php else: ?>
+		<link rel="stylesheet" href="<?php echo $AppPath ?>css/<?php echo $content_css ?>.css">
+<?php endif ?>
+<?php endif ?>
+		<script src="<?php echo $AppPath ?>js/jquery-3.4.1.js"></script>
+		<script src="<?php echo $AppPath ?>js/jquery-ui-1.12.1/jquery-ui.js"></script>
+		<script src="<?php echo $AppPath ?>js/main.js"></script>
+<?php if (isset($content_js)): ?>
+<?php if (is_array($content_js)): ?>
+<?php foreach($content_js as $cx => $cv): ?>
+		<script src="<?php echo $AppPath ?>js/<?php echo $cv ?>.js"></script>
+<?php endforeach ?>
+<?php else: ?>
+		<script src="<?php echo $AppPath ?>js/<?php echo $content_js ?>.js"></script>
+<?php endif ?>
+<?php endif ?>
+	</head>
+	<body>
+		<div id="div_wrap">
+			<div id="div_header" >
+				<img id="img_baner" src="img/gentree.png" />
+			</div>
+			<div id="div_user" class="div_content_background" >
+				<form method="POST" ><?php echo $user['name'] ?> <?php if ($user['name']!=''): ?><input type="submit" name="logout" value="wyloguj" /><?php endif ?></form>
+			</div>
+			<div id="div_content" class="div_content_background" >
+<?php echo $content ?>
+			</div>
+			<div id="div_footer" class="div_content_background" >autor: Artur Giera 2020</div>
+		</div>
+	</body>
+</html>

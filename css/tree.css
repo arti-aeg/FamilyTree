@@ -1,0 +1,25 @@
+#div_tree_menu {
+	margin: 1vh;
+	height: 5%;
+	padding-left: 1%;
+}
+
+#div_tree_menu img {
+	height: 90%;
+}
+
+#div_tree_menu span {
+	margin-top: 0vh;
+}
+
+
+#div_tree_canvas {
+	margin: 1vh;
+	height: 93%;
+	overflow: scroll;
+	text-align: center;
+}
+
+#canvas_tree {
+	margin: auto;
+}

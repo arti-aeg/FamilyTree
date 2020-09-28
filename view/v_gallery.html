@@ -1,0 +1,101 @@
+<div id="div_gallery_menu" class="div_sticker" >
+	<span><a href="<?php echo $back_link ?>">POWRÓT</a></span>
+</div>
+<div id="div_gallery" class="div_sticker">
+<?php if ($edit==''): ?>
+	<div id="div_portret" class="div_inner" >
+		<div class="div_person_photo photo_frame_<?php echo $gallery['portret']['plec'] ?><?php if ($gallery['portret']['zm']==1) echo '_zm' ?>">
+			<img class="img_person" src="<?php echo $gallery['portret']['photo'] ?>">
+		</div>
+	</div>
+<?php else: ?>
+	<div id="div_photo_edit" class="div_inner">
+		<center>
+		  <div class="figure-wrapper">
+			<figure class="image-container target">
+			  <img src="<?php echo $gallery['gallery_path'].$edit ?>" alt="DomoKun" id="target">
+
+			  <figcaption class="image-meta">
+				<form id="fm_add_portret" name="add_portret" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="edit" value="" />
+				<input id="inp_photo" type="hidden" name="photo" /><br /><input type="hidden" name="portret_button" value="ZAPISZ" />
+				</form>
+			  </figcaption>
+			</figure>
+		  </div>
+		</center>
+	</div>
+	<div id="div_cancel" class="div_inner">
+	<a href="?controler=gallery&id=<?php echo $lud_id ?>">Wróć</a>
+	</div>
+<?php endif ?>
+</div>
+<div id="div_dzieci" >
+	<div id="div_photos" class="div_inner div_sticker" >
+<?php foreach ($gallery['photos'] as $px => $pv): ?>		
+		<a class="a_lista_element" href="?controler=gallery&id=<?php echo $lud_id ?>&edit=<?php echo $pv ?>" >
+			<div class="div_lista_element" >
+				<div class="div_listaosoba" >
+					<div class="div_listaosoba_photo photo_frame_<?php echo $gallery['portret']['plec'] ?><?php if ($gallery['portret']['zm']==1) echo '_zm' ?>">
+						<img class="img_listaosoba" src="<?php echo $gallery['gallery_path'].$pv ?>" onClick="ShowPhotoEdit('<?php echo $gallery['gallery_path'].$pv ?>')">
+					</div>
+					<span class="span_photo_file span_plec_<?php echo $gallery['portret']['plec'] ?>"><?php echo $pv ?></span>
+				</div>
+				<div class="div_listaosoba_opis">
+				</div>
+			</div>
+		</a>
+<?php endforeach ?>
+	</div>
+	<div id="div_add_photo">
+		<form method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?php echo $lud_id ?>" />
+			<input type="file" name="new_photo" />
+			<input type="submit" name="button_add" value="DODAJ" />
+		</form>
+	</div>
+</div>
+<?php if ($edit!=''): ?>
+<script src="js/vendor/fabric.js"></script>
+<script src="js/build/darkroom.js"></script>
+<script>
+    var dkrm = new Darkroom('#target', {
+      // Size options
+      minWidth: 100,
+      minHeight: 100,
+      maxWidth: 500,
+      maxHeight: 500,
+      ratio: 3/4,
+      backgroundColor: '#000',
+
+      // Plugins options
+      plugins: {
+        crop: {
+          quickCropKey: 67, //key "c"
+          minHeight: 50,
+          minWidth: 50,
+          ratio: 3/4
+        },
+        save: {
+
+          callback: function() {
+
+            // the function is bound to the plugin object
+          this.darkroom.selfDestroy(); // Turn off the bar and cleanup
+          var newImage = dkrm.canvas.toDataURL();
+              $('input:hidden[name="photo"]').val(newImage);
+              $('input:hidden[name="portret_button"]').val('ZAPISZ');
+              $('#fm_add_portret').submit();
+          }
+        }
+      },
+
+      // Post initialize script
+      initialize: function() {
+        var cropPlugin = this.plugins['crop'];
+        // cropPlugin.selectZone(170, 25, 300, 300);
+        cropPlugin.requireFocus();
+      }
+    });
+</script>
+<?php endif ?>

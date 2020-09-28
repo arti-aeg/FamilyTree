@@ -1,0 +1,1 @@
+UPDATE lud_ludzie SET lud_lud_ojciec=:lud_lud_ojciec WHERE lud_id=:lud_id

@@ -1,0 +1,1 @@
+SELECT * FROM adm_admini WHERE adm_nick=:user OR adm_mail=:user AND adm_haslo=:adm_haslo

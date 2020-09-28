@@ -1,0 +1,100 @@
+body {
+  font-family: "Trebuchet MS", Trebuchet MS, Arial, sans-serif;
+  font-size: 1.5vh;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background: url("../img/tree_back.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+form {
+	display: inline;
+}
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+* html .ui-autocomplete {
+    height: 100px;
+}
+
+.inline {
+    display: inline-block; //Or display: inline; 
+}
+
+#div_wrap {
+/*	border: 1px solid #aaaaaa; */
+	width: 90%;
+	height: 100vh;
+	margin: 0 auto;
+}
+
+#div_header {
+/*	border: 0px solid #aaaaaa; */
+	height: 10vh;
+	text-align: center;
+	color: rgb(100,0,0);
+}
+
+#img_baner {
+	height: 95%;
+}
+
+#div_user {
+/*	border: 0px solid #aaaaaa; */
+	height: 5vh;
+	box-shadow: 5px 5px 15px #86868680;
+	text-align: left;
+	font-size: 150%;
+	padding-left: 1vh;
+}
+
+#div_user form input {
+	height: 4vh;
+	margin-top: 0.5vh;
+}
+
+#div_login {
+	background-color: #74313d80;
+	box-shadow: 5px 5px 15px #86868680;
+	margin: 0px 0px 15px 0px;
+}
+
+#div_content {
+/*	border: 0px solid #aaaaaa; */
+	box-shadow: 5px 5px 15px #86868680;
+	text-align: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	height: 80vh;
+}
+
+#div_footer {
+	height: 3vh;
+	box-shadow: 5px 5px 15px #86868680;
+	padding: 0.3vh;
+}
+
+.div_content_background {
+	background-color: #1c381fa3;
+}
+	

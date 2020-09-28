@@ -1,0 +1,233 @@
+<div id="div_rodzice" >
+<?php foreach (array('matka' => 1, 'ojciec' => 0) as $rx => $rv): ?>
+	<div class="div_rodzic_kolumna" >
+<?php if ($person[$rx]['lud_id']>0): ?>
+		<a href="?id=<?php echo $person[$rx]['lud_id'] ?>" >
+<?php endif ?>
+		<div id="div_rodzice_<?php echo $rx ?>" class="div_rodzic div_sticker" >
+			<div class="div_rodzic_photo photo_frame_<?php echo $rv ?><?php if ($person[$rx]['lud_zmarl']==1) echo '_zm' ?>"> 
+				<img class="img_rodzic" src="<?php echo $person[$rx]['portret'] ?>">
+			</div> 
+			<div class="div_rodzic_opis">
+				<span class="span_nazwisko span_plec_<?php echo $rv ?>"><?php echo $person[$rx]['lud_imiona'] ?> <?php echo $person[$rx]['lud_nazwisko'] ?><?php if ($person[$rx]['lud_panienskie']!='' and $person[$rx]['lud_panienskie']!=$person[$rx]['lud_nazwisko']) echo ' z domu '.$person[$rx]['lud_panienskie'] ?></span>
+<?php if ($person[$rx]['urodzony']['long']!='' or $person[$rx]['lud_miejsce_ur']!=''): ?>			
+				<span class="span_label"><?php if ($person[$rx]['lud_plec']==0) {echo 'urodzony';} else {echo ' urodzona';} ?><?php echo ': '.$person[$rx]['urodzony']['long'] ?><?php if ($person[$rx]['urodzony']['long']=='') echo ':' ?><?php echo ' '.$person[$rx]['lud_miejsce_ur'] ?></span>
+<?php endif ?>
+<?php if ($person[$rx]['wiek']!=''): ?>			
+				<span class="span_label">wiek: <?php echo $person[$rx]['wiek'] ?></span>
+<?php endif ?>
+<?php if ($person[$rx]['zmarly']['long']!=''): ?>			
+				<span class="span_label"><?php if ($person[$rx]['lud_plec']==0) {echo 'zmarły';} else {echo ' zmarła';} ?><?php echo ': '.$person[$rx]['zmarly']['long'] ?></span>
+<?php endif ?>
+<?php if ($person[$rx]['lud_miejsce_zg']!=''): ?>			
+				<span class="span_label">miejsce pochówku: <?php echo ' '.$person[$rx]['lud_miejsce_zg'] ?></span>
+<?php endif ?>
+			</div>
+<?php if ($person[$rx]['lud_id']==0 and $adm_rights==1): ?>
+			<div class="div_rodzic_box" >
+				<div class="div_rodzic_tools" >
+					<img src="img/person_add<?php echo $rv ?>.png" class="img_person_add" onClick="ShowEditBox('<?php echo $rx ?>')" />
+				</div>
+			</div>
+<?php endif ?>
+		</div>
+<?php if ($person[$rx]['lud_id']>0): ?>
+		</a>
+<?php endif ?>
+	</div>
+<?php endforeach ?>
+</div>
+<div id="div_person" >
+	<div id="div_person_info" class="div_inner" >
+		<div class="div_person_photo photo_frame_<?php echo $person['person']['lud_plec'] ?><?php if ($person['person']['lud_zmarl']==1) echo '_zm' ?>">
+			<img class="img_person" src="<?php echo $person['person']['portret'] ?>">
+		</div>
+		<div class="div_person_opis">
+			<div id="div_person_opis" >
+			<span class="span_nazwisko span_plec_<?php echo $person['person']['lud_plec'] ?>"><?php echo $person['person']['lud_imiona'] ?> <?php echo $person['person']['lud_nazwisko'] ?><?php if ($person['person']['lud_panienskie']!='' and $person['person']['lud_panienskie']!=$person['person']['lud_nazwisko']) echo ' z domu '.$person['person']['lud_panienskie'] ?></span>
+<?php if ($person['person']['urodzony']['long']!='' or $person['person']['lud_miejsce_ur']!=''): ?>			
+			<span class="span_label"><?php if ($person['person']['lud_plec']==0) {echo 'urodzony';} else {echo ' urodzona';} ?><?php echo ': '.$person['person']['urodzony']['long'] ?><?php if ($person['person']['urodzony']['long']=='') echo ':' ?><?php echo ' '.$person['person']['lud_miejsce_ur'] ?></span>
+<?php endif ?>
+<?php if ($person['person']['wiek']!=''): ?>			
+			<span class="span_label">wiek: <?php echo $person['person']['wiek'] ?></span>
+<?php endif ?>
+<?php if ($person['person']['zmarly']['long']!=''): ?>			
+			<span class="span_label"><?php if ($person['person']['lud_plec']==0) {echo 'zmarły';} else {echo ' zmarła';} ?><?php echo ': '.$person['person']['zmarly']['long'] ?></span>
+<?php endif ?>
+<?php if ($person['person']['lud_miejsce_zg']!=''): ?>			
+			<span class="span_label">miejsce pochówku: <?php echo ' '.$person['person']['lud_miejsce_zg'] ?></span>
+<?php endif ?>
+			</div>
+			<div  id="div_person_tools" class="div_person_tools" >
+				<a href="?controler=tree&id=<?php echo $person['person']['lud_id'] ?>" ><img src="img/tree.png" /></a>
+				<a href="?controler=gallery&id=<?php echo $person['person']['lud_id'] ?>" ><img src="img/galery.png" /></a>
+<?php if ($adm_rights==1): ?>
+				<img src="img/edit.png" onClick="ShowEditBox('osoba')" />
+<?php endif ?>
+			</div>
+		</div>
+	</div>
+	<div id="div_person_rodzenstwo" class="div_inner div_sticker" >
+<?php if (count($person['rodzenstwo'])==0) echo '&nbsp;' ?>
+<?php foreach ($person['rodzenstwo'] as $ox => $ov): ?>		
+		<a class="a_lista_element" href="?id=<?php echo $ov['lud_id'] ?>" >
+			<div class="div_lista_element" >
+				<div class="div_listaosoba" >
+					<div class="div_listaosoba_photo photo_frame_<?php echo $ov['lud_plec'] ?><?php if ($ov['lud_zmarl']==1) echo '_zm' ?>">
+						<img class="img_listaosoba" src="<?php echo $ov['portret'] ?>">
+					</div>
+					<div class="div_listaosoba_opis">
+						<span class="span_nazwisko span_plec_<?php echo $ov['lud_plec'] ?>"><?php echo $ov['lud_imiona'] ?> <?php echo $ov['lud_nazwisko'] ?></span>
+					</div>
+				</div>
+			</div>
+		</a>
+<?php endforeach ?>
+<?php if ($adm_rights==1): ?>
+		<div class="div_box" >
+			<div class="div_tools" >
+				<img src="img/person_add1.png" class="img_person_add" onClick="ShowEditBox('siostra')" />
+				<img src="img/person_add0.png" class="img_person_add" onClick="ShowEditBox('brat')" />
+			</div>
+		</div>
+<?php endif ?>
+	</div>
+</div>
+<div id="div_dzieci" >
+	<div id="div_dzieci_lista" class="div_inner div_sticker" >
+<?php foreach ($person['dzieci'] as $ox => $ov): ?>		
+		<a class="a_lista_element" href="?id=<?php echo $ov['lud_id'] ?>" >
+			<div class="div_lista_element" >
+				<div class="div_listaosoba" >
+					<div class="div_listaosoba_photo photo_frame_<?php echo $ov['lud_plec'] ?><?php if ($ov['lud_zmarl']==1) echo '_zm' ?>">
+						<img class="img_listaosoba" src="<?php echo $ov['portret'] ?>">
+					</div>
+				</div>
+				<div class="div_listaosoba_opis">
+					<span class="span_nazwisko span_plec_<?php echo $ov['lud_plec'] ?>"><?php echo $ov['lud_imiona'] ?> <?php echo $ov['lud_nazwisko'] ?></span>
+				</div>
+			</div>
+		</a>
+<?php endforeach ?>
+<?php if ($adm_rights==1): ?>
+		<div class="div_box" >
+			<div class="div_tools" >
+				<img src="img/person_add1.png" class="img_person_add" onClick="ShowEditBox('corka')" />
+				<img src="img/person_add0.png" class="img_person_add" onClick="ShowEditBox('syn')" />
+			</div>
+		</div>
+<?php endif ?>
+	</div>
+</div>
+
+<!-- okno edycji -->
+<div id="div_dialog" title="">
+	<form id="form_link" method="post">
+		<input id="hid_link_link" type="hidden" name="link_link" value="0" />
+		<input id="hid_link_typ" type="hidden" name="link_typ" value="" />
+		<table id="tab_link_osoba" class="tab_edit">
+			<tr>
+				<td>Jeśli rodzicem jest jedna z ponizszych osób, wskaż ją i naciśnij ZAPISZ. W przeciwnym razie wybierz "nowa osoba".</td>
+			</tr>
+			<tr>
+				<td>
+					<select id="sel_link_rodzic" name="sel_rodzic" onChange="LinkEditSw()" >
+					</select>
+					<input id="but_link" type="submit" name="link_button" value="ZAPISZ" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	<form id="form_edit" method="post">
+		<input id="hid_edit_link" type="hidden" name="edit_link" value="0" />
+		<input id="hid_edit_typ" type="hidden" name="edit_typ" value="" />
+		<table id="tab_edit_rodzice" class="tab_edit">
+			<tr><td>MATKA</td><td>OJCIEC</td></tr>
+			<tr>
+				<td>
+					<select id="sel_edit_matka" name="edit_matka">
+					</select>
+				</td>
+				<td>
+					<select id="sel_edit_ojciec" class="sel_rodzic" name="edit_ojciec">
+					</select>
+				</td>
+			</tr>
+		</table>
+		<table id="tab_edit_plec">
+			<tr><td><input type="radio" id="radio_edit_plec_male" name="edit_plec" value="0" />Mężczyzna</td><td><input type="radio" id="radio_edit_plec_female" name="edit_plec" value="1" />Kobieta</td></tr>
+		</table>
+		<table id="tab_edit_nazwisko">
+			<tr><td>Imiona</td><td>Nazwisko</td><td>Rodowe</td></tr>
+			<tr><td><input id="txt_edit_imiona" name="edit_imiona" /></td><td><input id="txt_edit_nazwisko" title="Podaj nazwisko" name="edit_nazwisko" onKeyUp="Poprawnosc()" /></td><td><input id="txt_edit_panienskie" name="edit_panienskie" /></td></tr>
+		</table>
+		<table id="tab_edit_ur">
+			<tr><td colspan="5">Urodzony(a)</td></tr>
+			<tr><td class="td_rok_nag">rok</td><td class="td_mie_nag">miesiąc</td><td class="td_dzi_nag">dzień</td><td class="td_godz_nag">godzina</td><td class="td_miejsce_nag">miejsce urodzenia</td></tr>
+			<tr>
+				<td class="td_rok">
+					<input id="txt_edit_rok_ur" class="txt_rok" name="edit_rok_ur" onKeyUp="ShowNextInput('txt_edit_rok_ur','sel_edit_mie_ur')" />
+				</td>
+				<td class="td_mie">
+					<select id="sel_edit_mie_ur" class="sel_mie" name="edit_mie_ur" onChange="ShowNextInput('sel_edit_mie_ur','sel_edit_dzi_ur')">
+					</select>
+				</td>
+				<td class="td_dzi">
+					<select id="sel_edit_dzi_ur" class="sel_dzi" name="edit_dzi_ur" onChange="ShowNextInput('sel_edit_dzi_ur','txt_edit_go_ur')">
+					</select>
+				</td>
+				<td class="td_godz">
+						<input id="txt_edit_go_ur" class="txt_godz" name="edit_go" onBlur="Poprawnosc()" />:<input id="txt_edit_mi_ur" class="txt_godz" name="edit_mi" onBlur="Poprawnosc()" />
+				</td>
+				<td class="td_miejsce">
+					<input id="txt_edit_miejsce_ur" class="txt_miejsce" name="edit_miejsce_ur" />
+				</td>
+			</tr>
+		</table>
+		<table id="tab_edit_zmarl">
+			<tr><td><input type="checkbox" id="chk_edit_zmarl" name="chk_zmarl" onChange="ShowZgSection()" />Świętej pamięci</td></tr>
+		</table>
+		<table id="tab_edit_zg">
+			<tr><td colspan="4">Zmarły(a)</td></tr>
+			<tr><td class="td_rok_nag">rok</td><td class="td_mie_nag">miesiąc</td><td class="td_dzi_nag">dzień</td><td class="td_miejsce_nag">miejsce pochówku</td></tr>
+			<tr>
+				<td class="td_rok">
+					<input id="txt_edit_rok_zg" class="txt_rok" name="edit_rok_zg" onKeyUp="ShowNextInput('txt_edit_rok_zg','sel_edit_mie_zg')" />
+				</td>
+				<td class="td_mie">
+					<select id="sel_edit_mie_zg" class="sel_mie" name="edit_mie_zg" onChange="ShowNextInput('sel_edit_mie_zg','sel_edit_dzi_zg')">
+					</select>
+				</td>
+				<td class="td_dzi">
+					<select id="sel_edit_dzi_zg" class="sel_dzi" name="edit_dzi_zg">
+					</select>
+				</td>
+				<td class="td_miejsce">
+					<input id="txt_edit_miejsce_zg" class="txt_miejsce" name="edit_miejsce_zg" />
+				</td>
+			</tr>
+		</table>
+		<table id="tab_edit_dzieci">
+			<tr><td>Dzieci</td></tr>
+			<tr>
+				<td>
+					<ul id="ul_edit_dzieci">
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td><input type="submit" id="but_edit" name="edit_button" value="ZAPISZ" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<!-- koniec okna edycji -->
+<script>
+  var J_MIESIACE = JSON.parse('<?php echo $json_miesiace ?>');
+  var J_EDIT = JSON.parse('<?php echo $json_edit ?>');
+  var J_ACTUAL = J_EDIT.osoba;
+  var J_ALERTS = JSON.parse('<?php echo $json_alert ?>');
+</script>
+
